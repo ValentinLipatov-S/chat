@@ -51,7 +51,7 @@ switch ($_GET["comand"])
 	
 	case "delete": 
     {
-        $query = "DELETE * FROM messages";
+        $query = "DELETE FROM films";
 		$result = pg_query($query) or die(pg_last_error());
         
     } break;
