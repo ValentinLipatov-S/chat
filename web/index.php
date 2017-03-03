@@ -21,16 +21,26 @@ switch ($_GET["comand"])
             echo "ERROR: Database are not created.";
         }    
     } break; 
-    
+	
+	case "length": 
+    {
+		$query = "SELECT * FROM messages";
+		$result = pg_query($query) or die(pg_last_error());
+		echo pg_num_rows($result);
+				
+    } break;
+
     case "get": 
     {
 		$query = "SELECT * FROM messages";
 		$result = pg_query($query) or die(pg_last_error());
+		$text = substr($text.length - 2);
 		while ($line = pg_fetch_array($result, null, PGSQL_ASSOC))
 		{
-			echo $line["message"];
+			$text .= $line["message"];
 		}
-				
+		$text = substr($text, 0, $text.length - 2);
+		echo $text;		
     } break;
 	
     case "set": 
