@@ -6,7 +6,7 @@ $dbconn = pg_connect("
 	password = dfd29c90a1108174bde464b59bea334b3eacc604eb29b2c490dec86cee54d481
 ")or die('Could not connect: ' . pg_last_error());
 
-switch ($_GET["comand"])
+switch ($_POST["comand"])
 {
     case "create": 
     {
@@ -45,7 +45,7 @@ switch ($_GET["comand"])
 	
     case "set": 
     {
-		$query = "INSERT INTO messages (message) VALUES ('$_GET[text]')";
+		$query = "INSERT INTO messages (message) VALUES ('$_POST[text]')";
 		$result = pg_query($query) or die(pg_last_error());
     } break;
 	
