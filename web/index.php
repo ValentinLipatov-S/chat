@@ -34,7 +34,7 @@ switch ($_GET["comand"])
     {
 		$query = "SELECT * FROM messages";
 		$result = pg_query($query) or die(pg_last_error());
-		$text = substr($text.length - 2);
+		$text = "";
 		while ($line = pg_fetch_array($result, null, PGSQL_ASSOC))
 		{
 			$text .= $line["message"] . "\n";
