@@ -39,7 +39,6 @@ switch ($_POST["comand"])
 		{
 			$text .= $line["message"] . "\n";
 		}
-		$str = substr($str,0,-2);
 		echo $text;		
     } break;
 	
