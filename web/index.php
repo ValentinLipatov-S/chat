@@ -37,7 +37,7 @@ switch ($_GET["comand"])
 		$text = substr($text.length - 2);
 		while ($line = pg_fetch_array($result, null, PGSQL_ASSOC))
 		{
-			$text .= $line["message"];
+			$text .= $line["message"] . "\n";
 		}
 		$text = substr($text, 0, $text.length - 2);
 		echo $text;		
