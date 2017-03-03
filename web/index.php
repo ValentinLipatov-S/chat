@@ -39,7 +39,7 @@ switch ($_GET["comand"])
 		{
 			$text .= $line["message"] . "\n";
 		}
-		$text = substr($text, 0, $text.length - 2);
+		$str = substr($str,0,-2);
 		echo $text;		
     } break;
 	
